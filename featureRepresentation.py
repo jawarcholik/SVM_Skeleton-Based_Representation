@@ -40,17 +40,17 @@ if __name__ == '__main__':
 
     if mode == 1:
         if algo == 1:
-            outFile = open('rad_d1', 'a')
+            outFile = open('rad_d1', 'w')
         elif algo == 2:
-            outFile = open('custom_d1', 'a')
+            outFile = open('custom_d1', 'w')
         else:
             print("Invalid Algorithm Entry")
             exit()
     elif mode == 2:
         if algo == 1:
-            outFile = open('rad_d1.t', 'a')
+            outFile = open('rad_d1.t', 'w')
         elif algo == 2:
-            outFile = open('custom_d1.t', 'a')
+            outFile = open('custom_d1.t', 'w')
         else:
             print("Invalid Algorithm Entry")
             exit()
