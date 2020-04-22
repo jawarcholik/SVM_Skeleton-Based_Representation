@@ -1,0 +1,36 @@
+Jacob Warcholik
+
+Implementation:
+
+This Script contains the representation code for feature extraction required for
+deliverable 2 of this project. It gives the user the option of two algorithms.
+The first is the RAD algorithm which uses joints with IDs 1, 4, 8, 12, 16, and 20.
+This corresponds to the hip, head, hands and feet. In the RAD algorithm 10 histograms
+are computed, 5 describing the distance of the extremity to the hips and 5 describing
+the angle between an extremity and the extremity found directly clockwise of it assuming
+the body is star shaped. The distances are calculated using the euclidean distance formula.
+The angles are calculated using the relation that the cosine of the angle between two vectors
+is equal to the dot product of the vectors divided by the product of the vector magnitudes.
+Each histogram is normalized by dividing every element in the histogram by the total Number
+of frames being used. The second algorithm offered by this script is the HJPD algorithm.
+In this algorithm every joint is used and related to the hips to find the displacement
+of each joint in every frame. The displacement is calculated by taking the absolute values
+of each difference in the x, y and z components of the joint being related to the hip position.
+From this 19 histograms are created representing each joint. Once again these histograms are
+normalized by dividing by the total number of frames being used. For both algorithms the
+normalized histograms are concatenated into a single feature vector which is written to the
+appropriate output file for the selected mode and algorithm. The current output files were
+created using a bin size of 10 but this value is customizable to aid in the testing of deliverable
+2.
+
+Compile and Run:
+
+To run this file simply navigate to the folder containing the script and enter the command:
+
+python3 featureRepresentation.py
+
+When the script is run the user will be prompted for four items; the mode, algorithm, dataset
+file path, and number of bins to use. The mode allows the user to choose between training and testing.
+The algorithm allows the user to choose the RAD algorithm or the custom (HJPD) algorithm.
+The file path tells the script where to get the sensor data files from and the bin number setting allows
+for ease of testing different number of bins in the histograms.

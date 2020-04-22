@@ -1,5 +1,4 @@
 import numpy as np
-
 import matplotlib.pyplot as plt
 import math
 import os
@@ -272,6 +271,7 @@ if __name__ == '__main__':
                         print("Error with Concatenation")
                         exit()
                     else:
+                        outFile.write(file + " ")
                         json.dump(outputVector, outFile)
                         outFile.write("\n")
                 except:
@@ -451,6 +451,7 @@ if __name__ == '__main__':
                         print("Error with Concatenation")
                         exit()
                     else:
+                        outFile.write(file + " ")
                         json.dump(outputVector, outFile)
                         outFile.write("\n")
                 except:
