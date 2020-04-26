@@ -68,3 +68,35 @@ svmLearning.py
 
   When this script is run the user is prompted for two data files in the LIBSVM format. The first
   file is for the training dataset and the second file is for the testing dataset.
+
+
+Experimental Results:
+  The optimal Cost and Gamma values found for the RAD algorithm were c=2.0 and g=0.03125.
+  The optimal Cost and Gamma values found for the HJPD algorithm were c=512.0 and g=0.0078125.
+
+  RAD Model:
+    Accuracy = 52.0833% (25/48)
+
+    Confusion Matrix:
+    Activity #  8   10  12  13  15  16
+      8         7   1   0   0   0   0
+      10        2   3   1   0   0   2
+      12        0   1   5   0   0   2
+      13        0   1   2   4   0   1
+      15        0   0   1   1   3   3
+      16        0   3   0   1   1   3
+
+
+
+  HJPD Model:
+    Accuracy = 70.8333% (34/48)
+
+    Confusion Matrix:
+    Activity #  8   10  12  13  15  16
+      8         8   0   0   0   0   0
+      10        3   4   0   1   0   0
+      12        0   0   6   1   0   1
+      13        2   0   0   6   0   0
+      15        0   0   0   0   4   4
+      16        0   1   0   0   1   6
+    
