@@ -266,7 +266,7 @@ if __name__ == '__main__':
                     outputVector.extend(normhistdlHand)
                     outputVector.extend(normhistalHand)
 
-                    totalLength = 5*(10 + 10)
+                    totalLength = 5*(2*numBins)
                     if len(outputVector) != totalLength:
                         print("Error with Concatenation")
                         exit()
@@ -446,7 +446,7 @@ if __name__ == '__main__':
                     outputVector.extend(normhistrFoot)
 
 
-                    totalLength = (numJoints-1)*(10)
+                    totalLength = (numJoints-1)*(numBins)
                     if len(outputVector) != totalLength:
                         print("Error with Concatenation")
                         exit()

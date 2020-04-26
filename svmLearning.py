@@ -26,15 +26,28 @@ scale_paramTest = csr_find_scale_param(testData, lower=0)
 scaled_trainData = csr_scale(trainData, scale_paramTrain)
 scaled_testData = csr_scale(testData, scale_paramTest)
 
-model = svm_train(trainLabels, scaled_trainData, '-c 2.0 -g 0.03125')
+
+if "rad" in trainFile:
+    model = svm_train(trainLabels, scaled_trainData, '-c 2.0 -g 0.03125')
+    # model = svm_train(trainLabels, scaled_trainData, '-c 2.0 -g 0.03125 -r 56.9444')
+elif "custom" in trainFile:
+    model = svm_train(trainLabels, scaled_trainData, '-c 512.0 -g 0.0078125')
+    # model = svm_train(trainLabels, scaled_trainData, '-c 512.0 -g 0.0078125 -r 69.4444')
+else:
+    print("Best Cost and Gamma Unknown")
+    cost = input('Set Cost: ')
+    gamma = input('Set Gamma: ')
+    options = '-c ' + str(cost) + ' -g ' + str(gamma)
+    model = svm_train(trainLabels, scaled_trainData, options)
 
 pLabels, accuracy, pVals = svm_predict(testLabels, scaled_testData, model)
 
-# print('Accuracy: ' + str(accuracy))
-
-# print(len(pLabels))
-# print(len(testLabels))
 
 confMatrix = confusion_matrix(testLabels,pLabels)
 
-print(confMatrix)    
+print(confMatrix)
+
+outFile = open(testFile+'.predict', 'w')
+
+for elem in pLabels:
+    outFile.write(str(int(elem))+'\n')

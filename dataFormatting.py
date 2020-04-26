@@ -11,17 +11,17 @@ with open(filein,'r') as file:
         splitLine = line.split()
 
         if "a08" in splitLine[0]:
-            outputLine = "1 "
+            outputLine = "8 "
         elif "a10" in splitLine[0]:
-            outputLine = "2 "
+            outputLine = "10 "
         elif "a12" in splitLine[0]:
-            outputLine = "3 "
+            outputLine = "12 "
         elif "a13" in splitLine[0]:
-            outputLine = "4 "
+            outputLine = "13 "
         elif "a15" in splitLine[0]:
-            outputLine = "5 "
+            outputLine = "15 "
         elif "a16" in splitLine[0]:
-            outputLine = "6 "
+            outputLine = "16 "
         else:
             print("Unknown Label")
 
